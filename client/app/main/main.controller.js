@@ -2,10 +2,10 @@
 
 angular.module('businessSpotApp')
   .controller('MainCtrl', function ($scope, $http) {
-    $scope.awesomeThings = [];
+    $scope.publicTenders = [];
 
-    $http.get('/api/things').success(function(awesomeThings) {
-      $scope.awesomeThings = awesomeThings;
+    $http.get('/api/publictenders').success(function(publicTenders) {
+      $scope.publicTenders = publicTenders;
     });
 
     $scope.addThing = function() {

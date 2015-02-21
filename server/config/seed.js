@@ -131,10 +131,6 @@ User.find({}).remove(function() {
             website: 'wit.pt',
             ranking: 343
           }, function() {
-            
-            // Public Tenders
-
-            // Submissions
 
           })
         })
@@ -349,8 +345,6 @@ User.find({}).remove(function() {
               })
             })
 
-            // Submissions
-
           })
         })
       })
@@ -403,9 +397,23 @@ User.find({}).remove(function() {
             ranking: 0
           }, function() {
             
-            // Public Tenders
-
-            // Submissions
+            Company.findOne({ taxNumber: 'PT518227333' }).select('_id').exec(function (err, company) {
+              PublicTenders.find({}).remove(function() {
+                // Public Tenders
+                PublicTenders.create({
+                  title: 'ShiftAPPens Bank Platform',
+                  company: company._id,
+                  tags: ['Web', 'Security'],
+                  description: 'The new coin need a home.',
+                  country: 'PRT',
+                  remote: false,
+                  budget: 560.000,
+                  phase: 1
+                }, function() {
+                  console.log('finished populating Public Tenders');
+                })
+              })
+            })
 
           })
         })
