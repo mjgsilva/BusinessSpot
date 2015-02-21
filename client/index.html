@@ -18,7 +18,6 @@
     <!-- build:css({.tmp,client}) app/app.css -->
     <link rel="stylesheet" href="app/app.css">
       <!-- injector:css -->
-      <link rel="stylesheet" href="components/bootstrap/bootstrap.min.css">
       <!-- endinjector -->
     <!-- endbuild -->
 
@@ -27,16 +26,24 @@
     <link rel="stylesheet" href="assets/css/skeleton.css">
     <!-- Components -->
     <link rel="stylesheet" href="angular_components/collapse/collapse.css">
-
-    <link rel="stylesheet" href="assets/css/override.css">
   </head>
   <body ng-app="businessSpotApp">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
+    <!-- Header -->
+    <div ng-include="'components/navbar/navbar.html'"></div>
+
     <!-- Add your site or application content here -->
     <div ui-view=""></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+          <p>Developed by <a href="https://twitter.com/ricardopereiraw">@ricardopereiraw</a> and <a href="https://twitter.com/mjgsilva">@mjgsilva</a></p>
+      </div>
+    </footer>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>

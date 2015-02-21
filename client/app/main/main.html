@@ -1,5 +1,3 @@
-<div ng-include="'components/navbar/navbar.html'"></div>
-
 <div class="container">
   <div class="row">
     <div class="col-lg-12">
@@ -18,7 +16,7 @@
             <td>{{tender.company.name}}</td>
             <td>{{tender.title}}</td>
             <td>
-              <a href="/publictender" class="button u-pull-right">more</a>
+              <a href="/publictender/{{tender._id}}" class="button u-pull-right">more</a>
             </td>
           </tr>
         </tbody>
@@ -27,9 +25,3 @@
     </div>
   </div>
 </div>
-
-<footer class="footer">
-  <div class="container">
-      <p>Developed by <a href="https://twitter.com/ricardopereiraw">@ricardopereiraw</a> and <a href="https://twitter.com/mjgsilva">@mjgsilva</a></p>
-  </div>
-</footer>
