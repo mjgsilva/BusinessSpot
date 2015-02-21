@@ -1,0 +1,13 @@
+.angular-collapse-wrapper {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: height 200ms;
+  transition: height 200ms;
+}
+
+.angular-collapse-wrapper > div {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}

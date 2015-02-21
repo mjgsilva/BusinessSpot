@@ -2,11 +2,13 @@
 
 var _ = require('lodash');
 var PublicTenders = require('./publictenders.model');
+var Company = require('../company/company.model');
 
 // Get list of publictenders
 exports.index = function(req, res) {
-  PublicTenders.find(function (err, publictenders) {
+  PublicTenders.find({}).populate('company').exec(function (err, publictenders) {
     if(err) { return handleError(res, err); }
+    console.log(publictenders)
     return res.json(200, publictenders);
   });
 };

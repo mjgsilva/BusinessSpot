@@ -4,10 +4,7 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var SubmissionsSchema = new Schema({
-  publicTender: {
-    type: Schema.ObjectId,
-    required: true
-  },
+  publicTender: { type: Schema.ObjectId, ref: 'PublicTenders' },
   phase: {
     type: Number,
     required: true,

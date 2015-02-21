@@ -9,12 +9,21 @@
           <tr>
             <th>Public Tenders</th>
             <th>Title</th>
+            <th></th>
           </tr>
         </thead>
         <tbody ng-repeat="tender in publicTenders">
           <tr>
-            <td>{{tender.company}}</td>
+            <td>{{tender.company.name}}</td>
             <td>{{tender.title}}</td>
+            <td>
+              <button class="button" type="button" data-toggle="collapse" data-target="#collapse{{tender._id}}" aria-expanded="false" aria-controls="collapse{{tender._id}}">more</button>
+              <div class="collapse" id="collapse{{tender._id}}">
+                <div class="well">
+                  
+                </div>
+              </div>
+            </td>
           </tr>
         </tbody>
       </table>

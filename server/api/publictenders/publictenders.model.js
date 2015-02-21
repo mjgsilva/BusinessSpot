@@ -8,10 +8,7 @@ var PublicTendersSchema = new Schema({
     type: String,
     required: true
   },
-  company: {
-    type: Schema.ObjectId,
-    required: true
-  },
+  company: { type: Schema.ObjectId, ref: 'Company' },
   tags: {
     type: [String],
     required: true

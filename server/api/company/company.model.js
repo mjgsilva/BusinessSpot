@@ -8,10 +8,7 @@ var CompanySchema = new Schema({
     type: String,
     required: true
   },
-  user: {
-    type: Schema.ObjectId,
-    required: true
-  },
+  user: { type: Schema.ObjectId, ref: 'User' },
   kind: {
     type: Number, //Enum: 1. Worker, 2. Tenderer, 3. Worker & Tenderer, 4. Recommender
     default: 1
