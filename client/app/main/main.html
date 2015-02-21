@@ -4,10 +4,11 @@
   <div class="row">
     <div class="col-lg-12">
 
+      <h3>Public Tenders</h3>
       <table class="u-full-width">
         <thead>
           <tr>
-            <th>Public Tenders</th>
+            <th>Company</th>
             <th>Title</th>
             <th></th>
           </tr>
@@ -17,12 +18,7 @@
             <td>{{tender.company.name}}</td>
             <td>{{tender.title}}</td>
             <td>
-              <button class="button" type="button" data-toggle="collapse" data-target="#collapse{{tender._id}}" aria-expanded="false" aria-controls="collapse{{tender._id}}">more</button>
-              <div class="collapse" id="collapse{{tender._id}}">
-                <div class="well">
-                  
-                </div>
-              </div>
+              <a href="/publictender" class="button u-pull-right">more</a>
             </td>
           </tr>
         </tbody>

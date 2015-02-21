@@ -5,7 +5,7 @@ var Submissions = require('./submissions.model');
 
 // Get list of submissions
 exports.index = function(req, res) {
-  Submissions.find(function (err, submissions) {
+  Submissions.find({}).populate('publicTender').exec(function (err, submissions) {
     if(err) { return handleError(res, err); }
     return res.json(200, submissions);
   });

@@ -8,7 +8,6 @@ var Company = require('../company/company.model');
 exports.index = function(req, res) {
   PublicTenders.find({}).populate('company').exec(function (err, publictenders) {
     if(err) { return handleError(res, err); }
-    console.log(publictenders)
     return res.json(200, publictenders);
   });
 };
