@@ -3,13 +3,13 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
-var PublictendersSchema = new Schema({
+var PublicTendersSchema = new Schema({
   title: {
     type: String,
     required: true
   },
-  entity: {
-    type: ObjectId,
+  company: {
+    type: Schema.ObjectId,
     required: true
   },
   tags: {
@@ -20,20 +20,26 @@ var PublictendersSchema = new Schema({
     type: String,
     required: true
   },
-  address : {
-    type: String
+  address: {
+    street: String,
+    zipcode: String,
+    region: String,
+    city: String
+  },
+  country: {
+    type: String //ISO 3166-1 - Alpha-3, ex: PRT (http://en.wikipedia.org/wiki/ISO_3166-1)
   },
   remote: {
     type: Boolean,
     required: true
   },
-  conditions: {
+  files: {
     type: [String],
-    required: true
+    required: false
   },
   budget: {
     type: Number,
-    required: true
+    required: true  
   },
   phase: {
     type: Number,
@@ -45,10 +51,14 @@ var PublictendersSchema = new Schema({
     required: true,
     default: Date.now
   },
+  changePhase: {
+    type: Date,
+    required: false
+  },
   finishing: {
     type: Date,
-    required: true
+    required: false
   }
 });
 
-module.exports = mongoose.model('Publictenders', PublictendersSchema);
+module.exports = mongoose.model('PublicTenders', PublicTendersSchema);
