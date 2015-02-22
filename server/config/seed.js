@@ -374,7 +374,7 @@ User.find({}).remove(function() {
                   phase: 1,
                   locked: true
                 }, function() {
-                  console.log('finished populating Public Tenders');
+                  console.log('finished populating JOBBOX Public Tenders');
                 })
               })
             })
@@ -465,7 +465,59 @@ User.find({}).remove(function() {
                   phase: 1,
                   locked: true
                 }, function() {
-                  console.log('finished populating Public Tenders');
+
+                  User.findOne({ name: 'Group Buddies', role: 'user' }).select('_id').exec(function (err, user) {
+                    // 1
+                    PublicTenders.findOne({ title: 'ShiftAPPens Rocket Launcher' }).select('_id').exec(function (err, tender) {
+                      Submissions.find({}).remove(function() {
+                        // Public Tenders
+                        Submissions.create({
+                          user: user._id,
+                          publicTender: tender._id,
+                          notes: 'We do it.',
+                          money: 5644000
+                        }, function() {
+                          console.log('finished populating Group Buddies Submissions');
+                        });
+                      });
+                    });
+                  });
+
+                  User.findOne({ name: 'Blip', role: 'user' }).select('_id').exec(function (err, user) {
+                    // 1
+                    PublicTenders.findOne({ title: 'ShiftAPPens Rocket Launcher' }).select('_id').exec(function (err, tender) {
+                      Submissions.find({}).remove(function() {
+                        // Public Tenders
+                        Submissions.create({
+                          user: user._id,
+                          publicTender: tender._id,
+                          notes: 'ShiftAppens is our thing.',
+                          money: 5000000
+                        }, function() {
+                          console.log('finished populating Blip Submissions');
+                        });
+                      });
+                    });
+                  });
+
+                  User.findOne({ name: 'iTGrow', role: 'user' }).select('_id').exec(function (err, user) {
+                    // 1
+                    PublicTenders.findOne({ title: 'ShiftAPPens Rocket Launcher' }).select('_id').exec(function (err, tender) {
+                      Submissions.find({}).remove(function() {
+                        // Public Tenders
+                        Submissions.create({
+                          user: user._id,
+                          publicTender: tender._id,
+                          notes: 'Lets rock.',
+                          money: 5100000
+                        }, function() {
+                          console.log('finished populating iTGrow Submissions');
+                        });
+                      });
+                    });
+                  });
+
+                  console.log('finished populating RedLight Public Tenders');
                 })
               })
             })
