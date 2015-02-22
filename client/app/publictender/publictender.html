@@ -65,8 +65,16 @@
 
     <!-- Last submission -->
     <div class="row" ng-show="hasSubmissions">
+      <div class="col-lg-12">
+        <ul>
+          <li><label>Amount</label>{{submission.money | currency : symbol : fractionSize}}</li>
+          <li><label>Notes</label>{{submission.notes}}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row" ng-show="hasSubmissions">
       <div class="col-lg-12" style="text-align: center;">
-        <a href="/" ng-click="create(submission)" class="button button-primary">Edit proposal</a>
+        <a href="" class="button button-primary">Edit proposal</a>
         <a href="/" class="button">Cancel</a>
       </div>
     </div>
