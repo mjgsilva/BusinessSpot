@@ -14,7 +14,7 @@ exports.index = function(req, res) {
 
 // Get a single publictenders
 exports.show = function(req, res) {
-  PublicTenders.findById(req.params.id, function (err, publictenders) {
+  PublicTenders.findById(req.params.id).populate('company').exec(function (err, publictenders) {
     if(err) { return handleError(res, err); }
     if(!publictenders) { return res.send(404); }
     return res.json(publictenders);

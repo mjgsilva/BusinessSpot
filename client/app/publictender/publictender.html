@@ -1,3 +1,58 @@
-<div class="col-md-12">
-{{tender.title}}
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h3>{{tender.title}}</h3>
+      <h6><strong style="margin-right: 10px">Company</strong>{{tender.company.name}}</h6>
+    </div>
+  </div>
+
+  <!-- Locked -->
+  <div class="row" ng-hide="tender.company.name == 'RedLight Software'">
+    <div class="col-lg-12" style="text-align: center;">
+      <i style="font-size: 20em;" class="fa fa-lock"></i>
+    </div>
+  </div> 
+  <div class="row" ng-hide="tender.company.name == 'RedLight Software'">
+    <div class="col-lg-12" style="text-align: center;">
+      <a href="" class="button button-primary">Unlock</a>
+      <a href="/" class="button">Cancel</a>
+    </div>
+  </div>
+
+  <!-- Unlocked -->
+  <div ng-show="tender.company.name == 'RedLight Software'">
+    <div class="row" style="text-align: center;">
+      <br /><br />
+      <img src="../assets/demo/proposal.png" />
+      <br /><br />
+      <button>Download requirements</button>
+      <br /><br /><br /><br />
+    </div>
+
+    <form>
+      <div class="row">
+        <div class="six columns">
+          <label for="amount">Amount</label>
+          <input class="u-full-width" type="number" placeholder="0.00" id="money" ng-model="submission.money">
+        </div>
+      </div>
+
+      <label for="notes">Notes</label>
+      <textarea class="u-full-width" placeholder="Justify your amount" id="notes" ng-model="submission.notes"></textarea>
+
+      <button>Upload file</button>
+      <br /><br />
+    </form>
+
+    <!-- Debug -->
+    <pre>form = {{submission | json}}</pre>
+
+    <div class="row">
+      <div class="col-lg-12" style="text-align: center;">
+        <a href="/" ng-click="create(submission)" class="button button-primary">Submit proposal</a>
+        <a href="/" class="button">Cancel</a>
+      </div>
+    </div>
+  </div>
+
 </div>

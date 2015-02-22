@@ -38,13 +38,13 @@ User.find({}).remove(function() {
     provider: 'local',
     role: 'admin',
     name: 'Ricardo Pereira',
-    email: 'r@business.spot',
+    email: 'r@b.s',
     password: 'babes'
   }, {
     provider: 'local',
     role: 'admin',
     name: 'Mário Silva',
-    email: 'm@business.spot',
+    email: 'm@b.s',
     password: 'babes'
   }, {
     provider: 'local',

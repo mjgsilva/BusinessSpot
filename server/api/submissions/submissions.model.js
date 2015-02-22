@@ -22,7 +22,7 @@ var SubmissionsSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  description: {
+  notes: {
     type: String,
     required: true
   },

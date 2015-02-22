@@ -13,7 +13,7 @@ exports.index = function(req, res) {
 
 // Get a single submissions
 exports.show = function(req, res) {
-  Submissions.findById(req.params.id, function (err, submissions) {
+  Submissions.findById(req.params.id).populate('publicTender').exec(function (err, submissions) {
     if(err) { return handleError(res, err); }
     if(!submissions) { return res.send(404); }
     return res.json(submissions);
