@@ -48,7 +48,7 @@ User.find({}).remove(function() {
     provider: 'local',
     role: 'admin',
     name: 'Mário Silva',
-    email: 'm@b.s',
+    email: 'mjgs.biz@gmail.com',
     password: 'babes'
   }, {
     provider: 'local',
@@ -96,7 +96,7 @@ User.find({}).remove(function() {
     provider: 'local',
     role: 'user',
     name: 'JOBBOX',
-    email: 'mjgs.biz@gmail.com',
+    email: 'jobbox@shiftappens.com',
     password: 'jobbox'
   }, {
     provider: 'local',

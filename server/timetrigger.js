@@ -7,6 +7,7 @@ var nodemailer = require('nodemailer');
 var Company = require('./api/company/company.model.js');
 var PublicTenders = require('./api/publictenders/publictenders.model');
 var Submissions = require('./api/submissions/submissions.model');
+var Users = require('./api/user/user.model');
 
 
 
@@ -20,7 +21,7 @@ agenda.define('PhaseChecker', function(job, done) {
     if(!err) {
       tenders.forEach(function(tender) {
         PublicTenders.findByIdAndUpdate(tender._id , {"$set": { phase: "2" } }, function (err, tender) {
-          if(!err && tender.length > 0) {
+          if(!err && tender.title.length > 0) {
             Submissions.find({ $and: [ { publicTender: mongoose.Types.ObjectId(tender._id) }, { last: true } ] }).sort({money: 'asc'}).exec(function(err, submissions) {
               mailHandler(tender, submissions);
             });
@@ -46,16 +47,16 @@ function mailHandler(tender, submissions) {
   var first = true;
 
   submissions.forEach(function(submission) {
-    if(first) {
-      sendMail(submission.user.email,tender.description,msgFirst);
-      first = false;
-    } else {
-      sendMail(submission.user.email,tender.description,msgNotFirst);
-    }
+
+    Users.findById(submission.user, function (err, user) {
+      if (first) {
+        sendMail(user.email,tender.title,msgFirst);
+        first = false;
+      } else {
+        sendMail(user.email, tender.title, msgNotFirst);
+      }
+    })
   });
-
-
-
 }
 
 function sendMail(mail, subj, body) {
@@ -63,12 +64,12 @@ function sendMail(mail, subj, body) {
        service: 'Gmail',
        auth: {
          user: 'business.spot.eq@gmail.com',
-         pass: 's3gundaénoIPN'
+         pass: 'th3damnBUSINESSsp0t'
        }
      });
 
     var mailOptions = {
-      from: 'Business Spot',
+      from: 'Business Spot <business.spot.eq@gmail.com>',
       to: mail,
       subject: subj,
       text: body
