@@ -96,7 +96,7 @@ User.find({}).remove(function() {
     provider: 'local',
     role: 'user',
     name: 'JOBBOX',
-    email: 'jobbox@shiftappens.com',
+    email: 'mjgs.biz@gmail.com',
     password: 'jobbox'
   }, {
     provider: 'local',
@@ -120,7 +120,7 @@ User.find({}).remove(function() {
             name: 'WIT',
             kind: 2, //Tenderer
             taxNumber: 'PT547253647',
-            address: { 
+            address: {
               street: 'Centro de Empresas de Taveiro',
               zipcode: '3045-508',
               region: 'Taveiro',
@@ -162,7 +162,7 @@ User.find({}).remove(function() {
             website: 'blip.pt',
             ranking: 120
           }, function() {
-            
+
             // Public Tenders
 
             // Submissions
@@ -190,7 +190,7 @@ User.find({}).remove(function() {
             website: 'flag.pt',
             ranking: 0
           }, function() {
-            
+
             // Public Tenders
 
             // Submissions
@@ -221,7 +221,7 @@ User.find({}).remove(function() {
             website: 'groupbuddies.com',
             ranking: 0
           }, function() {
-            
+
             // Public Tenders
 
             // Submissions
@@ -248,7 +248,7 @@ User.find({}).remove(function() {
             website: 'itgrow.pt',
             ranking: 0
           }, function() {
-            
+
             // Public Tenders
 
             // Submissions
@@ -279,7 +279,7 @@ User.find({}).remove(function() {
             website: 'whitesmith.co',
             ranking: 0
           }, function() {
-            
+
             // Public Tenders
 
             // Submissions
@@ -300,7 +300,7 @@ User.find({}).remove(function() {
             website: 'lunacloud.com',
             ranking: 0
           }, function() {
-            
+
             // Public Tenders
 
             // Submissions
@@ -330,7 +330,7 @@ User.find({}).remove(function() {
             },
             ranking: 0
           }, function() {
-            
+
             Company.findOne({ taxNumber: 'PT542847444' }).select('_id').exec(function (err, company) {
               PublicTenders.find({}).remove(function() {
                 // Public Tenders
@@ -373,7 +373,7 @@ User.find({}).remove(function() {
             website: 'isasensing.com',
             ranking: 0
           }, function() {
-            
+
             // Public Tenders
 
             // Submissions
@@ -401,7 +401,7 @@ User.find({}).remove(function() {
             website: 'weareredlight.com',
             ranking: 0
           }, function() {
-            
+
             Company.findOne({ taxNumber: 'PT518227333' }).select('_id').exec(function (err, company) {
               PublicTenders.find({}).remove(function() {
                 // Public Tenders

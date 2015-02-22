@@ -21,7 +21,9 @@
     "passport-local": "~0.1.6",
     "passport-twitter": "latest",
     "composable-middleware": "^0.3.0",
-    "connect-mongo": "^0.4.1"
+    "connect-mongo": "^0.4.1",
+    "agenda": "*",
+    "nodemailer": "*"
   },
   "devDependencies": {
     "grunt": "~0.4.4",

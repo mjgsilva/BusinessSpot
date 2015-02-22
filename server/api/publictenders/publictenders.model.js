@@ -36,7 +36,7 @@ var PublicTendersSchema = new Schema({
   },
   budget: {
     type: Number,
-    required: true  
+    required: true
   },
   phase: {
     type: Number,
@@ -50,6 +50,7 @@ var PublicTendersSchema = new Schema({
   },
   changePhase: {
     type: Date,
+    default: Date.now,
     required: false
   },
   finishing: {

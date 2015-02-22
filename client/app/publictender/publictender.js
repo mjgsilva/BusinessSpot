@@ -8,5 +8,5 @@ angular.module('businessSpotApp')
         templateUrl: 'app/publictender/publictender.html',
         controller: 'PublictenderCtrl',
         authenticate: true
-      })
+      });
   });
