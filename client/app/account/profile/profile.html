@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row">
+  <div class="row" ng-show="hasPublicTenders">
     <div class="col-sm-12">
       <h1>Public Tenders</h1>
       <br /><br />
@@ -10,11 +10,20 @@
         <li><label>Description</label>{{tender.description}}</li>
         <li><strong>Published </strong>{{tender.published | date : format : timezone}}</li>
         <li><strong>Ends on </strong>{{tender.finishing | date : format : timezone}}</li>
-        <li>
-          <a href="" class="button u-pull-right">Open</a>
+        <li class="u-pull-right">
+          <a href="/company/permissions/{{tender._id}}" class="button">Manage permissions</a>
+          <a href="/company/publictender/{{tender._id}}" class="button button-primary">Detail</a>
         </li>
         <br /><br /><br />
       </ul>
+    </div>
+  </div>
+
+  <div class="row" ng-hide="hasPublicTenders">
+    <div class="col-sm-12">
+      You don't have permission to create public tenders.
+      <br /><br />
+      <button>Create company</button>
     </div>
   </div>
 </div>

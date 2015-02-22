@@ -7,7 +7,7 @@ var Submissions = require('../submissions/submissions.model');
 
 // Get a single lastsubmission
 exports.show = function(req, res) {
-  Submissions.find( { publicTender: mongoose.Types.ObjectId(req.params.id), last: true } ).populate('publicTender').exec(function (err, submissions) {
+  Submissions.find( { publicTender: mongoose.Types.ObjectId(req.params.id), last: true } ).populate('publicTender, user').exec(function (err, submissions) {
     if(err) { return handleError(res, err); }
     if(!submissions) { return res.send(404); }
     return res.json(submissions);

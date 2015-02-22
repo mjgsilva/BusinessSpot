@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h3>{{tender.title}}</h3>
+      <br />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <h4>Permissions</h4>
+      <table class="u-full-width">
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Proposal</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody ng-repeat="submission in submissions">
+          <tr>
+            <td>{{submission.user.name}}</td>
+            <td>{{submission.money | currency : symbol : fractionSize}}</td>
+            <td>
+              <a href="" class="button u-pull-right">Allow</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

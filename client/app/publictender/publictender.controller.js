@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('businessSpotApp')
-  .controller('PublictenderCtrl', function ($scope, $http, $stateParams, Auth) {
+  .controller('PublicTenderCtrl', function ($scope, $http, $stateParams, Auth) {
     $scope.tender = {};
     $scope.submission = {};
     $scope.hasSubmissions = false;

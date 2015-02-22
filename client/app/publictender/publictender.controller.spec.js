@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Controller: PublictenderCtrl', function () {
+describe('Controller: PublicTenderCtrl', function () {
 
   // load the controller's module
   beforeEach(module('businessSpotApp'));
@@ -10,7 +10,7 @@ describe('Controller: PublictenderCtrl', function () {
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    PublictenderCtrl = $controller('PublictenderCtrl', {
+    PublictenderCtrl = $controller('PublicTenderCtrl', {
       $scope: scope
     });
   }));

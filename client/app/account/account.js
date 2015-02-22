@@ -24,5 +24,17 @@ angular.module('businessSpotApp')
         templateUrl: 'app/account/profile/profile.html',
         controller: 'ProfileCtrl',
         authenticate: true
+      })
+      .state('publicTender', {
+        url: '/company/publictender/{id:[0-9a-zA-Z-_]*}',
+        templateUrl: 'app/account/publictender/publictender.html',
+        controller: 'AccountPublicTenderCtrl',
+        authenticate: true
+      })
+      .state('permissions', {
+        url: '/company/permissions/{id:[0-9a-zA-Z-_]*}',
+        templateUrl: 'app/account/permissions/publictender.html',
+        controller: 'AccountPermissionsCtrl',
+        authenticate: true
       });
   });
