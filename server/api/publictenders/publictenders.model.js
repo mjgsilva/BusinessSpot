@@ -10,8 +10,7 @@ var PublicTendersSchema = new Schema({
   },
   company: { type: Schema.ObjectId, ref: 'Company' },
   tags: {
-    type: [String],
-    required: true
+    type: [String]
   },
   description: {
     type: String,
@@ -27,8 +26,7 @@ var PublicTendersSchema = new Schema({
     type: String //ISO 3166-1 - Alpha-3, ex: PRT (http://en.wikipedia.org/wiki/ISO_3166-1)
   },
   remote: {
-    type: Boolean,
-    required: true
+    type: Boolean
   },
   files: {
     type: [String],
@@ -60,7 +58,8 @@ var PublicTendersSchema = new Schema({
   //Demo porpuse
   locked: {
     type: Boolean,
-    required: true
+    required: true,
+    default: false
   }
 });
 

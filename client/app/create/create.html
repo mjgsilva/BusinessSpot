@@ -9,28 +9,30 @@
     <div class="row">
       <div class="six columns">
         <label for="budget">Title</label>
-        <input class="u-full-width" type="text" placeholder="Title" id="title" ng-model="publicTender.title">
+        <input class="u-full-width" type="text" placeholder="Title" id="title" ng-model="tender.title">
       </div>
     </div>
 
     <div class="row">
       <div class="three columns">
         <label for="budget">Budget</label>
-        <input class="u-full-width" type="number" placeholder="0.00" id="budget" ng-model="publicTender.budget">
+        <input class="u-full-width" type="number" placeholder="0.00" id="budget" ng-model="tender.budget">
         <label for="finishing">Finishing (Days)</label>
-        <input class="u-full-width" type="number" min="7" max="31" placeholder="Finishing" id="finishing" ng-model="publicTender.finishing">
+        <input class="u-full-width" type="number" min="7" max="31" placeholder="Finishing" id="finishing" ng-model="tender.finishDay">
       </div>
     </div>
 
     <label for="notes">Description</label>
-    <textarea class="u-full-width" placeholder="Description" id="description" ng-model="publicTender.description"></textarea>
+    <textarea class="u-full-width" placeholder="Description" id="description" ng-model="tender.description"></textarea>
+    <label for="remote">Remote Work</label>
+    <input class="u-full-width" type="checkbox" ng-model="tender.remote">
 
     <button class="u-pull-right">Upload file</button>
   </form>
 
   <br /><br />
   <div class="row">
-    <a href="/" class="button button-primary">Create</a>
+    <a href="/" ng-click="create(tender)" class="button button-primary">Create</a>
     <a href="/" class="button">Cancel</a>
   </div>
 </div>

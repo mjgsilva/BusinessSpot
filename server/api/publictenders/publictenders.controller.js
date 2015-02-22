@@ -1,6 +1,7 @@
 'use strict';
 
 var _ = require('lodash');
+var mongoose = require('mongoose');
 var PublicTenders = require('./publictenders.model');
 var Company = require('../company/company.model');
 
@@ -23,10 +24,17 @@ exports.show = function(req, res) {
 
 // Creates a new publictenders in the DB.
 exports.create = function(req, res) {
-  PublicTenders.create(req.body, function(err, publictenders) {
-    if(err) { return handleError(res, err); }
-    return res.json(201, publictenders);
+  Company.findOne( { user: mongoose.Types.ObjectId(req.body.userId) }, function(err, company) {
+
+    req.body.company = company._id;
+
+    PublicTenders.create(req.body, function(err, publictenders) {
+      if(err) { console.log(err); return handleError(res, err); }
+      return res.json(200, publictenders);
+    });
+
   });
+
 };
 
 // Updates an existing publictenders in the DB.
