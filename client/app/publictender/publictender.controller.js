@@ -1,11 +1,12 @@
 'use strict';
 
 angular.module('businessSpotApp')
-  .controller('PublictenderCtrl', function ($scope, $http, $stateParams) {
+  .controller('PublictenderCtrl', function ($scope, $http, $stateParams, Auth) {
     $scope.tender = {};
     $scope.submission = {};
     $scope.hasSubmissions = false;
     $scope.currentId = $stateParams.id;
+    $scope.getCurrentUser = Auth.getCurrentUser();
 
     $http.get('/api/publictenders/' + $scope.currentId).success(function(tender) {
       $scope.tender = tender;
@@ -13,7 +14,6 @@ angular.module('businessSpotApp')
       // Demo porpuse
       $http.get('/api/lastsubmission/' + $scope.tender._id).success(function(submissions) {
         if (submissions.length > 0) {
-          console.log(submissions);
           $scope.hasSubmissions = true;
           $scope.submission = submissions[submissions.length-1];
         }
@@ -22,6 +22,7 @@ angular.module('businessSpotApp')
 
     $scope.create = function(submission) {
       submission.publicTender = $scope.tender._id;
+      submission.user = $scope.getCurrentUser._id;
       $http.post('/api/submissions', submission);
     };
   });
