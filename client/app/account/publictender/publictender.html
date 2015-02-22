@@ -8,13 +8,14 @@
 
   <div class="row">
     <div class="col-lg-12">
-      <h4>Public Tenders</h4>
+      <h4>Proposals</h4>
 
       <table class="u-full-width">
         <thead>
           <tr>
             <th>Company</th>
-            <th>Proposal</th>
+            <th>Amount</th>
+            <th>Notes</th>
             <th></th>
           </tr>
         </thead>
@@ -22,6 +23,8 @@
           <tr>
             <td>{{submission.user.name}}</td>
             <td>{{submission.money | currency : symbol : fractionSize}}</td>
+            <td>{{submission.user.notes}}</td>
+            <td><i class="fa fa-file-pdf-o"></i></td>
           </tr>
         </tbody>
       </table>
@@ -29,10 +32,12 @@
     </div>
   </div>
 
+  <br />
   <div class="row">
     <div class="col-lg-12">
       <button class="button-primary">Download Report</button>
-      <button>Finish</button>
+      <a href="/profile" class="button">Cancel</a>
+      <a href="/profile" class="button" style="float: right;">Close</a>
     </div>
   </div>
 </div>

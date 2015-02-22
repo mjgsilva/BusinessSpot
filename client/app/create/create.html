@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h3>Create public tender</h3>
+    </div>
+  </div>
+
+  <form ng-hide="hasSubmissions">
+    <div class="row">
+      <div class="six columns">
+        <label for="budget">Title</label>
+        <input class="u-full-width" type="text" placeholder="Title" id="title" ng-model="publicTender.title">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="three columns">
+        <label for="budget">Budget</label>
+        <input class="u-full-width" type="number" placeholder="0.00" id="budget" ng-model="publicTender.budget">
+        <label for="finishing">Finishing (Days)</label>
+        <input class="u-full-width" type="number" min="7" max="31" placeholder="Finishing" id="finishing" ng-model="publicTender.finishing">
+      </div>
+    </div>
+
+    <label for="notes">Description</label>
+    <textarea class="u-full-width" placeholder="Description" id="description" ng-model="publicTender.description"></textarea>
+
+    <button class="u-pull-right">Upload file</button>
+  </form>
+
+  <br /><br />
+  <div class="row">
+    <a href="/" class="button button-primary">Create</a>
+    <a href="/" class="button">Cancel</a>
+  </div>
+</div>

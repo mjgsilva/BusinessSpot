@@ -10,6 +10,7 @@
           <li ng-show="isLoggedIn()" ng-class="{active: isActive('/profile')}"><a href="/profile">Profile</a></li>
           <li ng-show="isLoggedIn()" ng-class="{active: isActive('/settings')}"><a href="/settings">Settings</a></li>
           <li ng-show="isLoggedIn()" ng-class="{active: isActive('/logout')}"><a href="" ng-click="logout()">Logout</a></li>
+          <li ng-class="{active: isActive('/create')}"><a class="alert" href="/create"><strong>Create</strong></a></li>
         </ul>
       </div>
     </div>
