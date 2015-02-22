@@ -7,12 +7,12 @@
   </div>
 
   <!-- Locked -->
-  <div class="row" ng-hide="tender.company.name == 'RedLight Software'">
+  <div class="row" ng-show="tender.locked">
     <div class="col-lg-12" style="text-align: center;">
       <i style="font-size: 20em;" class="fa fa-lock"></i>
     </div>
   </div> 
-  <div class="row" ng-hide="tender.company.name == 'RedLight Software'">
+  <div class="row" ng-show="tender.locked">
     <div class="col-lg-12" style="text-align: center;">
       <a href="" class="button button-primary">Unlock</a>
       <a href="/" class="button">Cancel</a>
@@ -20,7 +20,16 @@
   </div>
 
   <!-- Unlocked -->
-  <div ng-show="tender.company.name == 'RedLight Software'">
+  <div ng-hide="tender.locked">
+    <div class="row">
+      <ul>
+        <li><label>Description</label>{{tender.description}}</li>
+        <li><label>Accept remote work</label>{{tender.remote}}</li>
+        <li><label>Published</label>{{tender.published | date : format : timezone}}</li>
+        <li><label>Ends on </label>{{tender.finishing | date : format : timezone}}</li>
+      </ul>
+    </div>
+
     <div class="row" style="text-align: center;">
       <br /><br />
       <img src="../assets/demo/proposal.png" />
@@ -29,7 +38,7 @@
       <br /><br /><br /><br />
     </div>
 
-    <form>
+    <form ng-hide="hasSubmissions">
       <div class="row">
         <div class="six columns">
           <label for="amount">Amount</label>
@@ -45,11 +54,19 @@
     </form>
 
     <!-- Debug -->
-    <pre>form = {{submission | json}}</pre>
+    <!-- <pre>form = {{submission | json}}</pre> -->
 
-    <div class="row">
+    <div class="row" ng-hide="hasSubmissions">
       <div class="col-lg-12" style="text-align: center;">
         <a href="/" ng-click="create(submission)" class="button button-primary">Submit proposal</a>
+        <a href="/" class="button">Cancel</a>
+      </div>
+    </div>
+
+    <!-- Last submission -->
+    <div class="row" ng-show="hasSubmissions">
+      <div class="col-lg-12" style="text-align: center;">
+        <a href="/" ng-click="create(submission)" class="button button-primary">Edit proposal</a>
         <a href="/" class="button">Cancel</a>
       </div>
     </div>

@@ -55,6 +55,11 @@ var PublicTendersSchema = new Schema({
   finishing: {
     type: Date,
     required: false
+  },
+  //Demo porpuse
+  locked: {
+    type: Boolean,
+    required: true
   }
 });
 

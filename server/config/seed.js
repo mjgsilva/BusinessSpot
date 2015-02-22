@@ -33,6 +33,10 @@ Thing.find({}).remove(function() {
   });
 });
 
+Submissions.find({}).remove(function() {
+  console.log('Submissions deleted');
+});
+
 User.find({}).remove(function() {
   User.create({
     provider: 'local',
@@ -338,7 +342,8 @@ User.find({}).remove(function() {
                   country: 'PRT',
                   remote: true,
                   budget: 120.000,
-                  phase: 1
+                  phase: 1,
+                  locked: true
                 }, function() {
                   console.log('finished populating Public Tenders');
                 })
@@ -407,8 +412,29 @@ User.find({}).remove(function() {
                   description: 'The new coin need a home.',
                   country: 'PRT',
                   remote: false,
-                  budget: 560.000,
-                  phase: 1
+                  budget: 560000,
+                  phase: 1,
+                  locked: false
+                }, {
+                  title: 'ShiftAPPens Rocket Launcher',
+                  company: company._id,
+                  tags: ['Space'],
+                  description: 'A rocket launcher is any device that launches a rocket-propelled projectile, although the term is often used in reference to mechanisms that are portable and capable of being operated by an individual.',
+                  country: 'PRT',
+                  remote: false,
+                  budget: 2330000,
+                  phase: 1,
+                  locked: false
+                }, {
+                  title: 'ShiftAPPens Website Update',
+                  company: company._id,
+                  tags: ['Web'],
+                  description: 'A website, also written as web site, or simply site, is a set of related web pages typically served from a single web domain.',
+                  country: 'PRT',
+                  remote: true,
+                  budget: 2000,
+                  phase: 1,
+                  locked: true
                 }, function() {
                   console.log('finished populating Public Tenders');
                 })
