@@ -136,6 +136,35 @@ User.find({}).remove(function() {
             ranking: 343
           }, function() {
 
+            Company.findOne({ taxNumber: 'PT547253647' }).select('_id').exec(function (err, company) {
+              PublicTenders.find({}).remove(function() {
+                // Public Tenders
+                PublicTenders.create({
+                  title: 'Video Call Service - Windows',
+                  company: company._id,
+                  tags: ['Desktop'],
+                  description: 'Video chat with a group of up to 10 people. Share your moments with more friends at once with Skype Group Video Chat.',
+                  country: 'PRT',
+                  remote: true,
+                  budget: 450.000,
+                  phase: 1,
+                  locked: true
+                }, {
+                  title: 'Video Call Service - Android',
+                  company: company._id,
+                  tags: ['Mobile'],
+                  description: 'Video chat with a group of up to 10 people. Share your moments with more friends at once with Skype Group Video Chat.',
+                  country: 'PRT',
+                  remote: true,
+                  budget: 450.000,
+                  phase: 1,
+                  locked: true
+                }, function() {
+                  console.log('finished populating WIT Public Tenders');
+                })
+              })
+            })
+
           })
         })
       })

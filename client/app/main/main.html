@@ -6,6 +6,7 @@
       <table class="u-full-width">
         <thead>
           <tr>
+            <th></th>
             <th>Company</th>
             <th>Title</th>
             <th></th>
@@ -13,10 +14,13 @@
         </thead>
         <tbody ng-repeat="tender in publicTenders">
           <tr>
+            <td style="width: 50px">
+              <div class="roundImage" style="background-image: url('assets/companies/{{tender.company.name}}.png')"></div>
+            </td>
             <td>{{tender.company.name}}</td>
             <td>{{tender.title}}</td>
             <td>
-              <a href="/publictender/{{tender._id}}" class="button u-pull-right">detail</a>
+              <a href="/publictender/{{tender._id}}" class="button u-pull-right">details</a>
             </td>
           </tr>
         </tbody>

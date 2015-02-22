@@ -41,7 +41,10 @@ var CompanySchema = new Schema({
   },
   ranking: {
     type: Number
-  }
+  },
+  logo: {
+    type: String
+  }  
 });
 
 module.exports = mongoose.model('Company', CompanySchema);
