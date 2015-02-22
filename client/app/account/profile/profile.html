@@ -2,9 +2,19 @@
   <div class="row">
     <div class="col-sm-12">
       <h1>Public Tenders</h1>
+      <br /><br />
     </div>
     <div class="col-sm-12">
-
+      <ul class="u-full-width" ng-repeat="tender in publicTenders">
+        <li><h4>{{tender.title}}</h4></li>
+        <li><label>Description</label>{{tender.description}}</li>
+        <li><strong>Published </strong>{{tender.published | date : format : timezone}}</li>
+        <li><strong>Ends on </strong>{{tender.finishing | date : format : timezone}}</li>
+        <li>
+          <a href="" class="button u-pull-right">Open</a>
+        </li>
+        <br /><br /><br />
+      </ul>
     </div>
   </div>
 </div>

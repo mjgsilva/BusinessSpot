@@ -1,6 +1,8 @@
 'use strict';
 
 var _ = require('lodash');
+var mongoose = require('mongoose');
+
 var Company = require('./company.model');
 
 // Get list of companys
@@ -13,7 +15,8 @@ exports.index = function(req, res) {
 
 // Get a single company
 exports.show = function(req, res) {
-  Company.findById(req.params.id).populate('user').exec(function (err, company) {
+  // Demo purpose: original findById(req.params.id)
+  Company.findOne({ user: mongoose.Types.ObjectId(req.params.id) }).populate('user').exec(function (err, company) {
     if(err) { return handleError(res, err); }
     if(!company) { return res.send(404); }
     return res.json(company);
